@@ -7,21 +7,26 @@ public class Moves : MonoBehaviour
     public float turnSpeed = 1f;
 
 	
+	void Start(){
+		
+		Physics.gravity = new Vector3(0, -100.0F, 0);
+	}
+	
 	
     void Update ()
     {
 		//Debug.Log ("coeff"+moveSpeed*Time.deltaTime, gameObject);
 		
-        if(Input.GetKey(KeyCode.UpArrow))
-            transform.Translate(transform.forward * moveSpeed);
+        if(Input.GetKey("z"))
+            transform.Translate(transform.up * moveSpeed);
         
-		if(Input.GetKey(KeyCode.DownArrow))
-            transform.Translate(-transform.forward * moveSpeed);
+		if(Input.GetKey("s"))
+            transform.Translate(-transform.up * moveSpeed);
 		
-		if(Input.GetKey(KeyCode.RightArrow))
+		if(Input.GetKey("d"))
             transform.Translate(transform.right * moveSpeed);
 			
-		if(Input.GetKey(KeyCode.LeftArrow))
+		if(Input.GetKey("q"))
             transform.Translate(-transform.right * moveSpeed);
 		
 		if (Input.GetKey(KeyCode.Space))
@@ -38,6 +43,16 @@ public class Moves : MonoBehaviour
         if(Input.GetKey(KeyCode.RightArrow))
             transform.Rotate(Vector3.up, turnSpeed);
     */
+    }
+	
+	void OnTriggerEnter(Collider collision) {
+		
+		Debug.Log("colision");
+        if(collision.gameObject.name == "checkpoint"){
+			 Debug.Log("checkpoint");
+		}
+        
+        
     }
 	
 	
