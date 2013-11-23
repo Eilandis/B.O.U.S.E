@@ -19,9 +19,12 @@ public class CamMouse : MonoBehaviour {
  
     void Update()
     {
-       rotY += Input.GetAxis("Mouse X")*sensitivity*Time.deltaTime;
+       	rotY += Input.GetAxis("Mouse X")*sensitivity*Time.deltaTime;
         rotX += Input.GetAxis("Mouse Y")*sensitivity*Time.deltaTime;
-        transform.localEulerAngles = new Vector3(rotX%360,rotY%360,0);
+        
+		Debug.Log("Camera angle  x:"+rotY+"y:"+rotX);
+		
+		transform.localEulerAngles = new Vector3(rotX%360,rotY%360,0);
 		
 	}
 	

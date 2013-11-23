@@ -6,12 +6,13 @@ public class Moves : MonoBehaviour
     public float moveSpeed = 1f;
     public float turnSpeed = 0.1f;
 	
+	float rotX;
 	float rotY;
 	
 	void Start(){
 		
 		rigidbody.freezeRotation=true;
-		Physics.gravity = new Vector3(0, -5.0F, 0);
+		Physics.gravity = new Vector3(0, -10.0F, 0);
 
 	}
 	
@@ -43,20 +44,28 @@ public class Moves : MonoBehaviour
         }
 		
 		
-		
-		
 	
-		
+		rotX = Input.mousePosition.y - Screen.height/2;
 		rotY = Input.mousePosition.x - Screen.width/2;
 		
-		Debug.Log("y deplacement = "+rotY);
+		
+		Camera.main.transform.localEulerAngles = new Vector3(-rotX/(Screen.height/70),270+rotY/(Screen.width/45),0);
+		
+		//Camera.main.transform.localEulerAngles = new Vector3(rotX%360,rotY%360,0);
+		
+		
+		
+		
+		//Debug.Log("y deplacement = "+rotY);
 		
 		if(rotY >= 100){
 			transform.Rotate(Vector3.right, turnSpeed);
 		}
 		if(rotY <= -100){
-			transform.Rotate(Vector3.right, -turnSpeed);			
+			transform.Rotate(Vector3.right, -turnSpeed);
 		}
+		
+		
     }
 	
 	void OnTriggerEnter(Collider collision) {
