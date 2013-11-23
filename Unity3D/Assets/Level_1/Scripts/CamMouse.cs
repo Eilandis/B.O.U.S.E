@@ -6,7 +6,7 @@ public class CamMouse : MonoBehaviour {
 	
 	float rotX;
 	float rotY;
-	float sensitivity = 700.0f;
+	public float sensitivity = 7000.0f;
 	
 	public float moveSpeed = 10f;
     public float turnSpeed = 50f;

@@ -4,30 +4,35 @@ using System.Collections;
 public class Moves : MonoBehaviour
 {
     public float moveSpeed = 1f;
-    public float turnSpeed = 1f;
-
+    public float turnSpeed = 0.1f;
+	
+	float rotY;
 	
 	void Start(){
 		
-		Physics.gravity = new Vector3(0, -100.0F, 0);
+		rigidbody.freezeRotation=true;
+		Physics.gravity = new Vector3(0, -5.0F, 0);
+
 	}
 	
 	
     void Update ()
     {
+		//transform.Translate(-transform.forward * 2f);
+		
 		//Debug.Log ("coeff"+moveSpeed*Time.deltaTime, gameObject);
 		
         if(Input.GetKey("z"))
-            transform.Translate(transform.up * moveSpeed);
+            transform.position += transform.up*moveSpeed;
         
 		if(Input.GetKey("s"))
-            transform.Translate(-transform.up * moveSpeed);
+           transform.position -= transform.up*moveSpeed;
 		
 		if(Input.GetKey("d"))
-            transform.Translate(transform.right * moveSpeed);
+           transform.position += transform.forward*moveSpeed;
 			
 		if(Input.GetKey("q"))
-            transform.Translate(-transform.right * moveSpeed);
+            transform.position -= transform.forward*moveSpeed;
 		
 		if (Input.GetKey(KeyCode.Space))
         {
@@ -37,12 +42,21 @@ public class Moves : MonoBehaviour
 			
         }
 		
-   /*     if(Input.GetKey(KeyCode.LeftArrow))
-            transform.Rotate(Vector3.up, -turnSpeed);
-        
-        if(Input.GetKey(KeyCode.RightArrow))
-            transform.Rotate(Vector3.up, turnSpeed);
-    */
+		
+		
+		
+	
+		
+		rotY = Input.mousePosition.x - Screen.width/2;
+		
+		Debug.Log("y deplacement = "+rotY);
+		
+		if(rotY >= 100){
+			transform.Rotate(Vector3.right, turnSpeed);
+		}
+		if(rotY <= -100){
+			transform.Rotate(Vector3.right, -turnSpeed);			
+		}
     }
 	
 	void OnTriggerEnter(Collider collision) {
@@ -50,6 +64,10 @@ public class Moves : MonoBehaviour
 		Debug.Log("colision");
         if(collision.gameObject.name == "checkpoint"){
 			 Debug.Log("checkpoint");
+		}
+        if(collision.gameObject.name == "Cube"){
+			 Debug.Log("stop falling");
+			//transform.Translate(-transform.forward * 0);
 		}
         
         
