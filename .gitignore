@@ -1,0 +1,10 @@
+# Compiled source #
+###################
+*.sln
+*Assembly*
+
+# Directories #
+############
+Unity3D/ProjectSettings/
+Library/
+
