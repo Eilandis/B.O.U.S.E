@@ -3,14 +3,14 @@
 --- !u!78 &1
 TagManager:
   tags:
-  - AlarmLight
-  - Enemy
-  - MainLight
-  - Fader
-  - WayPoint
-  - Siren
+  - Bob
+  - Glass
+  - Ground
+  - Building
+  - Manager
   - 
-  - Alarm
+  - 
+  - 
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
