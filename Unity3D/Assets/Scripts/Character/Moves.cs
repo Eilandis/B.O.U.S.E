@@ -5,14 +5,12 @@ public class Moves : MonoBehaviour
 {
     public float moveSpeed = 1f;
     public float turnSpeed = 0.1f;
-	private Score score;
 	
 	float rotX;
 	float rotY;
 	
 	void Start(){
 
-		score = GameObject.FindWithTag("Manager").GetComponent<Score>();
 		rigidbody.freezeRotation=true;
 		Physics.gravity = new Vector3(0, -10.0F, 0);
 
@@ -69,19 +67,6 @@ public class Moves : MonoBehaviour
 		
 		
     }
-	
-	void OnTriggerEnter(Collider col) {
-		
-        if(col.CompareTag("Glass")){
-			score.Add(10);
-			Debug.Log(score.Get());
-		}
-		
-		if(col.gameObject.name == "Cube"){
-			 Debug.Log("stop falling");
-			//transform.Translate(-transform.forward * 0);
-		}
-		}
         
         
     }

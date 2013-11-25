@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\Menu\Scripts\Menu.cs" />
      <Compile Include="Assets\Menu\Scripts\Select.cs" />
+     <Compile Include="Assets\Scripts\Character\Collisions.cs" />
      <Compile Include="Assets\Scripts\Character\Moves.cs" />
      <Compile Include="Assets\Scripts\Score\Score.cs" />
   </ItemGroup>
